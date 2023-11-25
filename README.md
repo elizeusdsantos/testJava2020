@@ -11,13 +11,15 @@ determinadas. A continuación se muestra un ejemplo de la tabla con los campos r
 * NOTE: I didn't understand the column "PRICE_LIST", seems to be the PK of the table, but it's not
   described as unique due to that I decided to add an ID column and to define all the identifiers as
   unique.
+* NOTE: H2 uses YYYY-MM-DD HH:MM:SS as timestamp format, so I changed the format of the dates in
+  the table.
 
-| ID | BRAND_ID | START_DATE          | END_DATE            | PRICE_LIST | PRODUCT_ID | PRIORITY | VALUE | CURR |
-|----|----------|---------------------|---------------------|------------|------------|----------|-------|------|
-| 1  | 1        | 2020-06-14-00.00.00 | 2020-12-31-23.59.59 | 1          | 35455      | 0        | 35.50 | EUR  | 
-| 2  | 1        | 2020-06-14-15.00.00 | 2020-06-14-18.30.00 | 2          | 35455      | 1        | 25.45 | EUR  | 
-| 3  | 1        | 2020-06-15-00.00.00 | 2020-06-15-11.00.00 | 3          | 35455      | 1        | 30.50 | EUR  | 
-| 4  | 1        | 2020-06-15-16.00.00 | 2020-12-31-23.59.59 | 4          | 35455      | 1        | 38.95 | EUR  | 
+| ID | BRAND_ID | START_DATE          | END_DATE            | PRICE_LIST | PRODUCT_ID | PRIORITY | ITEM_PRICE | CURR |
+|----|----------|---------------------|---------------------|------------|------------|----------|------------|------|
+| 1  | 1        | 2020-06-14 00:00:00 | 2020-12-31 23:59:59 | 1          | 35455      | 0        | 35.50      | EUR  | 
+| 2  | 1        | 2020-06-14 15:00:00 | 2020-06-14 18:30:00 | 2          | 35455      | 1        | 25.45      | EUR  | 
+| 3  | 1        | 2020-06-15 00:00:00 | 2020-06-15 11:00:00 | 3          | 35455      | 1        | 30.50      | EUR  | 
+| 4  | 1        | 2020-06-15 16:00:00 | 2020-12-31 23:59:59 | 4          | 35455      | 1        | 38.95      | EUR  | 
 
 ### Campos:
 
