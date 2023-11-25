@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Currency;
 
@@ -18,16 +17,21 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
-    private Brand brandId;
+    private Brand brand;
+    @Column(nullable = false)
     private LocalDateTime startDate;
+    @Column(nullable = false)
     private LocalDateTime endDate;
     @Column(unique = true)
     private Long priceList;
-    @Column(unique = true)
+    @Column(nullable = false)
     private Long productId;
+    @Column(nullable = false)
     private Integer priority;
-    private BigDecimal value;
+    @Column(nullable = false)
+    private Double itemPrice;
+    @Column(nullable = false)
     private Currency curr;
-
 }
