@@ -1,4 +1,4 @@
-package com.softtek.testjava2020.model.brand;
+package com.softtek.testjava2020.domain.brand;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

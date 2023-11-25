@@ -1,6 +1,6 @@
-package com.softtek.testjava2020.model.price;
+package com.softtek.testjava2020.domain.price;
 
-import com.softtek.testjava2020.model.brand.Brand;
+import com.softtek.testjava2020.domain.brand.Brand;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
