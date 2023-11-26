@@ -2,6 +2,11 @@ package com.softtek.testjava2020.controller;
 
 import com.softtek.testjava2020.domain.price.Price;
 import com.softtek.testjava2020.service.PriceService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +24,17 @@ import java.util.List;
 public class PriceController {
     private final PriceService priceService;
 
+    @Operation(summary = "Get list of prices by date, product id and brand id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Request OK", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Price.class))
+            })})
     @GetMapping
-    public ResponseEntity<List<Price>> getPricesByDateAndProductIdAndBrandId(@RequestParam("date") LocalDateTime date, @RequestParam("productId") Long productId, @RequestParam("brandId") Long brandId) {
+    public ResponseEntity<Price> getPricesByDateAndProductIdAndBrandId(@RequestParam("date") LocalDateTime date,
+                                                                       @RequestParam("productId") Long productId,
+                                                                       @RequestParam("brandId") Long brandId) {
 
-        List<Price> prices = priceService.findPricesByStartDateAndProductIdAndBrandId(date, productId, brandId);
-        return new ResponseEntity<>(prices, HttpStatus.OK);
+        Price price = priceService.findPricesByStartDateAndProductIdAndBrandId(date, productId, brandId);
+        return new ResponseEntity<>(price, HttpStatus.OK);
     }
 }
