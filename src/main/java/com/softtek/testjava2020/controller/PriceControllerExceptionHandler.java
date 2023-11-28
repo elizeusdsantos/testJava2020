@@ -17,7 +17,7 @@ public class PriceControllerExceptionHandler {
     public ResponseEntity<Map<String, String>> handlePriceNotFoundException(RuntimeException ex) {
 
         Map<String, String> errorMessage = Map.ofEntries(
-                Map.entry("Error message", ex.getMessage()),
+                Map.entry("error_message", ex.getMessage()),
                 Map.entry("status", HttpStatus.NOT_FOUND.toString())
         );
         return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_FOUND);

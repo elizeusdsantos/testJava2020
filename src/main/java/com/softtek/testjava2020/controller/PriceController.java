@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class PriceController {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = Price.class))
             })})
     @GetMapping
-    public ResponseEntity<Price> getPricesByDateAndProductIdAndBrandId(@RequestParam("date") LocalDateTime date,
+    public ResponseEntity<Price> getPricesByDateAndProductIdAndBrandId(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime date,
                                                                        @RequestParam("productId") Long productId,
                                                                        @RequestParam("brandId") Long brandId) {
 
